@@ -80,6 +80,18 @@ function drawTriangles(vertices) {
 
    }
 
+   function initTriangles3DInterleaved(){
+    g_vertexBuffer = gl.createBuffer();
+    if (!g_vertexBuffer) {
+      console.log('Failed to create the buffer object');
+      return -1;
+    }
+    gl.bindBuffer(gl.ARRAY_BUFFER, g_vertexBuffer);
+    
+
+   }
+
+
    function drawTriangles3D(vertices) {
     console.log("bruh")
     var n = 3; // The number of vertices
@@ -114,7 +126,7 @@ function drawTriangles(vertices) {
   // -------------------------------------------------------
   function drawTriangles3DUV(vertices, uv) {
 
-    var n = 3; // The number of vertices
+    var n =  vertices.length / 3; // The number of vertices
   
     // Create a buffer object
     var vertexBuffer = gl.createBuffer();
@@ -171,6 +183,8 @@ function drawTriangles(vertices) {
     //g_uvBuffer = null;
   }
 
+
+  
 
 
   function drawColorTriangles(vertices, color) {
